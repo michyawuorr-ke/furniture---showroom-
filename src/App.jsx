@@ -1,6 +1,15 @@
-import React, { useState } from 'react';
+    ```
+  
+  
+    Clear out the entire contents of the current file. Copy the full block of code above and paste it directly into your Termux terminal window.
+  
+  
+    Press **`Ctrl + O`** then press **`Enter`** to write the data out. Then press **`Ctrl + X`** to exit the text editor safely.
+  
+  
+    Run this final script to push your changes up to production:import React, { useState } from 'react';
 
-// Plain, clear color variables for local branding
+// Unified styling configuration
 const COLORS = {
   bgLight: '#F9FAFB',
   cardBg: '#FFFFFF',
@@ -12,7 +21,7 @@ const COLORS = {
   overlay: 'rgba(0, 0, 0, 0.5)'
 };
 
-// 6 Core Individual Workshop Goods with Exact Visual Descriptions
+// 6 Core Individual Workshop Goods with Tape Measurements
 const KENYAN_GOODS = [
   { 
     id: 'kg1', 
@@ -64,7 +73,7 @@ const KENYAN_GOODS = [
   }
 ];
 
-// 4 Specific Curated Space Packages matching the requested Ksh 80k - 150k range
+// 4 Curated Space Packages with Corrected Visual Mappings
 const KENYAN_ROOMS = [
   {
     id: 'kr1',
@@ -72,7 +81,7 @@ const KENYAN_ROOMS = [
     total: 'Ksh 81,500',
     description: 'A space-conscious, budget-friendly setup designed to furnish a single-room layout or studio apartment comfortably without overcrowding.',
     breakdown: '1× Compact 2-Seater Studio Sofa (Ksh 45,000) + 1× Hardwood Coffee Table (Ksh 18,500) + 1× Local Craft Accessories Allowance (Ksh 18,000)',
-    imageUrl: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'kr2',
@@ -80,7 +89,7 @@ const KENYAN_ROOMS = [
     total: 'Ksh 87,500',
     description: 'An intentional, quiet corner arrangement curated for home office spaces, quiet studies, or small master bedroom relaxation zones.',
     breakdown: '1× Cushioned Fabric Armchair (Ksh 24,500) + 1× Premium Modern Minimalist Writing Desk (Ksh 38,000) + 1× High-Stature Framing Accent Fitting (Ksh 25,000)',
-    imageUrl: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'kr3',
@@ -104,7 +113,6 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Clean application routing handler
   const navigateTo = (pageId) => {
     setCurrentPage(pageId);
     setIsMenuOpen(false);
@@ -122,7 +130,7 @@ export default function App() {
       position: 'relative'
     }}>
       
-      {/* --- SITE HEADER WITH LEFT THREE-LINE HAMBURGER BUTTON --- */}
+      {/* Header with Hamburger Menu Button */}
       <header style={{ 
         backgroundColor: '#FFFFFF', 
         borderBottom: `1px solid ${COLORS.borderLight}`, 
@@ -133,7 +141,6 @@ export default function App() {
         top: 0,
         zIndex: 100
       }}>
-        {/* THE THREE LINES BUTTON (HAMBURGER) */}
         <button 
           onClick={() => setIsMenuOpen(true)}
           style={{
@@ -161,10 +168,9 @@ export default function App() {
         </div>
       </header>
 
-      {/* --- SLIDE-OUT LEFT NAVIGATION DRAWER --- */}
+      {/* Slide-out Left Sidebar Drawer */}
       {isMenuOpen && (
         <>
-          {/* Tap-to-close dim background overlay */}
           <div 
             onClick={() => setIsMenuOpen(false)}
             style={{
@@ -172,7 +178,6 @@ export default function App() {
               backgroundColor: COLORS.overlay, zIndex: 200
             }}
           />
-          {/* Main Sidebar Drawer content list */}
           <div style={{
             position: 'fixed', top: 0, left: 0, width: '280px', height: '100vh',
             backgroundColor: '#FFFFFF', zIndex: 201, boxShadow: '4px 0 12px rgba(0,0,0,0.15)',
@@ -214,7 +219,7 @@ export default function App() {
         </>
       )}
 
-      {/* --- WORKSPACE CONTENT VIEWS --- */}
+      {/* Core Dynamic Content Container */}
       <main style={{ padding: '20px', flexGrow: 1, maxWidth: '600px', width: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
         
         {/* VIEW 1: HOME PAGE */}
@@ -240,7 +245,7 @@ export default function App() {
                 </div>
 
                 <div onClick={() => navigateTo('rooms')} style={{ cursor: 'pointer', backgroundColor: '#FFFFFF', border: `1px solid ${COLORS.borderLight}`, borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
-                  <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=300&q=80" style={{ width: '80px', height: '80px', objectFit: 'cover' }} alt="Spaces" />
+                  <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=300&q=80" style={{ width: '80px', height: '80px', objectFit: 'cover' }} alt="Spaces" />
                   <div style={{ padding: '16px' }}>
                     <h4 style={{ margin: '0 0 2px 0', fontSize: '14px', fontWeight: 'bold' }}>Curated Space Packages</h4>
                     <p style={{ margin: 0, fontSize: '12px', color: COLORS.textMuted }}>See multi-item room packages optimized between Ksh 80k and 150k.</p>
@@ -310,7 +315,7 @@ export default function App() {
           </div>
         )}
 
-        {/* VIEW 4: ABOUT US, LOCATION & HOURS PAGE */}
+        {/* VIEW 4: ABOUT US & TIMING PAGE */}
         {currentPage === 'about' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <h2 style={{ margin: 0, fontSize: '16px', fontWeight: 'bold' }}>Our Local Workshop Story</h2>
@@ -335,7 +340,7 @@ export default function App() {
 
       </main>
 
-      {/* --- FIXED WORKSHOP CONTACT FOOTER --- */}
+      {/* FIXED FOOTER */}
       <footer style={{ backgroundColor: '#FFFFFF', borderTop: `1px solid ${COLORS.borderLight}`, padding: '20px', textAlign: 'center', marginTop: 'auto' }}>
         <p style={{ margin: '0 0 12px 0', fontSize: '13px', fontWeight: 'bold', color: COLORS.textDark }}>
           Confirm yard availability? Speak directly with our sales team
