@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-// Practical Home Furniture Store Palette
 const COLORS = {
   bgLight: '#F8F9FA',
   cardBg: '#FFFFFF',
@@ -8,8 +7,6 @@ const COLORS = {
   textMuted: '#6C757D',
   primaryBlue: '#0D6EFD',
   borderLight: '#DEE2E6',
-  
-  // Everyday Fabric Options
   fabricGray: '#8F9499',
   fabricBeige: '#E1D7C6',
   fabricBrown: '#655447',
@@ -18,7 +15,6 @@ const COLORS = {
   woodWhite: '#FFFFFF'
 };
 
-// Data Model 1: Exactly 8 Everyday Furniture Items with Realistic Prices
 const ORDINARY_GOODS = [
   {
     id: 'g1',
@@ -127,7 +123,6 @@ const ORDINARY_GOODS = [
   }
 ];
 
-// Data Model 2: Exactly 5 Regular Family Room Bundles with Price Adding
 const ORDINARY_ROOMS = [
   {
     id: 'r1',
@@ -179,7 +174,7 @@ const ORDINARY_ROOMS = [
     description: 'A space-saving setup designed for children and teenagers.',
     imageUrl: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80',
     items: [
-      { name: '1× Queen Bed Frame (Used as Twin Single)', cost: '$399' },
+      { name: '1× Queen Bed Frame', cost: '$399' },
       { name: '1× Home Office Writing Desk', cost: '$199' }
     ],
     total: '$598'
@@ -187,9 +182,7 @@ const ORDINARY_ROOMS = [
 ];
 
 export default function App() {
-  const [currentTab, setCurrentTab] = useState('goods'); // goods = 8 individual items, rooms = 5 bundle deals
-  
-  // Tracks color choices for all 8 items individually
+  const [currentTab, setCurrentTab] = useState('goods');
   const [selectedColors, setSelectedColors] = useState({
     g1: ORDINARY_GOODS[0].options[0],
     g2: ORDINARY_GOODS[1].options[0],
@@ -209,119 +202,46 @@ export default function App() {
     <div style={{
       backgroundColor: COLORS.bgLight,
       color: COLORS.textDark,
-      fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      fontFamily: 'system-ui, sans-serif',
       minHeight: '100vh',
       display: 'flex',
-      flexDirection: 'column',
-      boxSizing: 'border-box'
+      flexDirection: 'column'
     }}>
-
-      {/* --- STANDARD HEADER --- */}
-      <header style={{
-        backgroundColor: '#FFFFFF',
-        borderBottom: `1px solid ${COLORS.borderLight}`,
-        padding: '16px 20px',
-        textAlign: 'center',
-        position: 'sticky',
-        top: 0,
-        zIndex: 10
-      }}>
-        <h1 style={{ margin: '0 0 4px 0', fontSize: '22px', fontWeight: 'bold', color: COLORS.primaryBlue }}>
-          Hometown Furniture Mart
-        </h1>
-        <p style={{ margin: 0, fontSize: '13px', color: COLORS.textMuted }}>
-          Quality Furniture for Every Room at Prices You Can Afford
-        </p>
+      <header style={{ backgroundColor: '#FFFFFF', borderBottom: `1px solid ${COLORS.borderLight}`, padding: '16px 20px', textAlign: 'center' }}>
+        <h1 style={{ margin: '0 0 4px 0', fontSize: '22px', fontWeight: 'bold', color: COLORS.primaryBlue }}>Hometown Furniture Mart</h1>
+        <p style={{ margin: 0, fontSize: '13px', color: COLORS.textMuted }}>Quality Furniture for Every Room at Prices You Can Afford</p>
       </header>
 
-      {/* --- SUB-NAVIGATION TABS --- */}
-      <div style={{
-        display: 'flex',
-        borderBottom: `1px solid ${COLORS.borderLight}`,
-        backgroundColor: '#FFFFFF'
-      }}>
-        <button
-          onClick={() => setCurrentTab('goods')}
-          style={{
-            flex: 1,
-            padding: '14px',
-            background: 'none',
-            border: 'none',
-            fontSize: '14px',
-            fontWeight: currentTab === 'goods' ? 'bold' : 'normal',
-            color: currentTab === 'goods' ? COLORS.primaryBlue : COLORS.textDark,
-            borderBottom: currentTab === 'goods' ? `3px solid ${COLORS.primaryBlue}` : '3px solid transparent',
-            cursor: 'pointer'
-          }}
-        >
+      <div style={{ display: 'flex', borderBottom: `1px solid ${COLORS.borderLight}`, backgroundColor: '#FFFFFF' }}>
+        <button onClick={() => setCurrentTab('goods')} style={{ flex: 1, padding: '14px', background: 'none', border: 'none', fontSize: '14px', fontWeight: currentTab === 'goods' ? 'bold' : 'normal', color: currentTab === 'goods' ? COLORS.primaryBlue : COLORS.textDark, borderBottom: currentTab === 'goods' ? `3px solid ${COLORS.primaryBlue}` : '3px solid transparent' }}>
           Individual Items (8 Products)
         </button>
-        <button
-          onClick={() => setCurrentTab('rooms')}
-          style={{
-            flex: 1,
-            padding: '14px',
-            background: 'none',
-            border: 'none',
-            fontSize: '14px',
-            fontWeight: currentTab === 'rooms' ? 'bold' : 'normal',
-            color: currentTab === 'rooms' ? COLORS.primaryBlue : COLORS.textDark,
-            borderBottom: currentTab === 'rooms' ? `3px solid ${COLORS.primaryBlue}` : '3px solid transparent',
-            cursor: 'pointer'
-          }}
-        >
+        <button onClick={() => setCurrentTab('rooms')} style={{ flex: 1, padding: '14px', background: 'none', border: 'none', fontSize: '14px', fontWeight: currentTab === 'rooms' ? 'bold' : 'normal', color: currentTab === 'rooms' ? COLORS.primaryBlue : COLORS.textDark, borderBottom: currentTab === 'rooms' ? `3px solid ${COLORS.primaryBlue}` : '3px solid transparent' }}>
           Room Package Deals (5 Spaces)
         </button>
       </div>
 
-      {/* --- MAIN VALUE SHOWCASE --- */}
       <main style={{ padding: '20px', flexGrow: 1, maxWidth: '600px', width: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
-        
-        {/* TAB 1: SHOWCASE OF 8 INDIVIDUAL ITEMS */}
         {currentTab === 'goods' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <div style={{ marginBottom: '4px' }}>
-              <h2 style={{ fontSize: '18px', margin: '0 0 4px 0' }}>Our Product Catalog</h2>
-              <p style={{ margin: 0, fontSize: '13px', color: COLORS.textMuted }}>Browse our standard store inventory below. Tap color circles to switch fabric or wood stains.</p>
-            </div>
-
             {ORDINARY_GOODS.map((item) => (
-              <div key={item.id} style={{
-                backgroundColor: COLORS.cardBg,
-                border: `1px solid ${COLORS.borderLight}`,
-                borderRadius: '8px',
-                overflow: 'hidden',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
-              }}>
-                {/* Product Image */}
-                <div style={{ width: '100%', height: '200px', backgroundColor: '#EEE' }}>
-                  <img 
-                    src={item.imageUrl} 
-                    alt={item.name} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-                  />
+              <div key={item.id} style={{ backgroundColor: COLORS.cardBg, border: `1px solid ${COLORS.borderLight}`, borderRadius: '8px', overflow: 'hidden' }}>
+                <div style={{ width: '100%', height: '200px' }}>
+                  <img src={item.imageUrl} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
-
-                {/* Product Text Details */}
                 <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 'bold' }}>{item.name}</h3>
                     <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#198754' }}>{item.price}</span>
                   </div>
-
-                  <p style={{ margin: 0, fontSize: '13px', color: COLORS.textDark, lineHeight: '1.4' }}>
-                    {item.description}
-                  </p>
-
-                  <div style={{ fontSize: '12px', color: COLORS.textMuted, backgroundColor: '#F8F9FA', padding: '6px 10px', borderRadius: '4px', marginTop: '4px' }}>
-                    <strong>Dimensions:</strong> {item.dimensions} | <strong>Type:</strong> {item.category}
+                  <p style={{ margin: 0, fontSize: '13px', lineHeight: '1.4' }}>{item.description}</p>
+                  <div style={{ fontSize: '12px', color: COLORS.textMuted, backgroundColor: '#F8F9FA', padding: '6px 10px', borderRadius: '4px' }}>
+                    <strong>Dimensions:</strong> {item.dimensions}
                   </div>
-
-                  {/* Color Changer Area */}
                   {item.options.length > 1 && (
                     <div style={{ borderTop: `1px solid ${COLORS.borderLight}`, paddingTop: '10px', marginTop: '4px' }}>
                       <span style={{ fontSize: '12px', color: COLORS.textMuted, display: 'block', marginBottom: '6px' }}>
-                        Selected Color/Finish: <strong>{selectedColors[item.id].name}</strong>
+                        Selected: <strong>{selectedColors[item.id]?.name}</strong>
                       </span>
                       <div style={{ display: 'flex', gap: '12px' }}>
                         {item.options.map((option) => (
@@ -333,11 +253,10 @@ export default function App() {
                               height: '24px',
                               borderRadius: '50%',
                               backgroundColor: option.hex,
-                              border: selectedColors[item.id].name === option.name ? `2px solid ${COLORS.primaryBlue}` : '1px solid #CCC',
+                              border: selectedColors[item.id]?.name === option.name ? `2px solid ${COLORS.primaryBlue}` : '1px solid #CCC',
                               cursor: 'pointer',
                               padding: 0
                             }}
-                            title={option.name}
                           />
                         ))}
                       </div>
@@ -349,62 +268,24 @@ export default function App() {
           </div>
         )}
 
-        {/* TAB 2: SHOWCASE OF 5 ROOM PACKAGES WITH ACCURATE CALCULATION BREAKDOWNS */}
         {currentTab === 'rooms' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <div>
-              <h2 style={{ fontSize: '18px', margin: '0 0 4px 0' }}>Bundle & Save Deals</h2>
-              <p style={{ margin: 0, fontSize: '13px', color: COLORS.textMuted }}>Furnish entire sections of your house in one go. Check our regular price item audits below.</p>
-            </div>
-
-            {ORDINARY_ROOMS.map((room, idx) => (
-              <div key={room.id} style={{
-                backgroundColor: COLORS.cardBg,
-                border: `1px solid ${COLORS.borderLight}`,
-                borderRadius: '8px',
-                overflow: 'hidden',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
-              }}>
-                {/* Room Layout Image */}
-                <div style={{ width: '100%', height: '180px', backgroundColor: '#EEE' }}>
-                  <img 
-                    src={room.imageUrl} 
-                    alt={room.title} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-                  />
+            {ORDINARY_ROOMS.map((room) => (
+              <div key={room.id} style={{ backgroundColor: COLORS.cardBg, border: `1px solid ${COLORS.borderLight}`, borderRadius: '8px', overflow: 'hidden' }}>
+                <div style={{ width: '100%', height: '180px' }}>
+                  <img src={room.imageUrl} alt={room.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
-
                 <div style={{ padding: '16px' }}>
-                  <span style={{ fontSize: '11px', color: COLORS.primaryBlue, fontWeight: 'bold', textTransform: 'uppercase' }}>
-                    Package Option 0{idx + 1}
-                  </span>
-                  <h3 style={{ margin: '2px 0 6px 0', fontSize: '16px', fontWeight: 'bold' }}>{room.title}</h3>
-                  <p style={{ margin: '0 0 14px 0', fontSize: '13px', color: COLORS.textMuted, lineHeight: '1.4' }}>{room.description}</p>
-
-                  {/* Simple Retail Receipt List */}
+                  <h3 style={{ margin: '0 0 6px 0', fontSize: '16px', fontWeight: 'bold' }}>{room.title}</h3>
+                  <p style={{ margin: '0 0 14px 0', fontSize: '13px', color: COLORS.textMuted }}>{room.description}</p>
                   <div style={{ backgroundColor: '#F8F9FA', padding: '12px', borderRadius: '6px', border: `1px solid ${COLORS.borderLight}` }}>
-                    <span style={{ fontSize: '11px', color: COLORS.textMuted, fontWeight: 'bold', display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>
-                      Price Details:
-                    </span>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                      {room.items.map((sub, sIdx) => (
-                        <div key={sIdx} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                          <span>{sub.name}</span>
-                          <span style={{ fontWeight: '500' }}>{sub.cost}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Simple Bottom Line Calculation */}
-                    <div style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      marginTop: '12px',
-                      paddingTop: '8px',
-                      borderTop: `1px solid ${COLORS.borderLight}`,
-                      fontWeight: 'bold',
-                      fontSize: '14px'
-                    }}>
+                    {room.items.map((sub, sIdx) => (
+                      <div key={sIdx} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', marginBottom: '4px' }}>
+                        <span>{sub.name}</span>
+                        <span>{sub.cost}</span>
+                      </div>
+                    ))}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '12px', paddingTop: '8px', borderTop: `1px solid ${COLORS.borderLight}`, fontWeight: 'bold' }}>
                       <span>Total Package Price:</span>
                       <span style={{ color: '#198754' }}>{room.total}</span>
                     </div>
@@ -414,40 +295,12 @@ export default function App() {
             ))}
           </div>
         )}
-
       </main>
 
-      {/* --- STANDARD RETAIL CONTACT FOOTER --- */}
-      <footer style={{
-        backgroundColor: '#FFFFFF',
-        borderTop: `1px solid ${COLORS.borderLight}`,
-        padding: '16px 20px',
-        textAlign: 'center',
-        marginTop: 'auto'
-      }}>
-        <p style={{ margin: '0 0 6px 0', fontSize: '13px', fontWeight: 'bold' }}>
-          Questions? Call or text our store floor desk
-        </p>
-        <button
-          onClick={() => window.open('https://wa.me/254700000000?text=Hi%2C%20I%20am%20checking%20out%20your%20furniture%20website%20and%20had%20a%20question%20about%20your%20stock.', '_blank')}
-          style={{
-            backgroundColor: '#198754',
-            color: '#FFFFFF',
-            border: 'none',
-            padding: '12px 20px',
-            borderRadius: '6px',
-            fontSize: '13px',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            width: '100%',
-            maxWidth: '300px'
-          }}
-        >
+      <footer style={{ backgroundColor: '#FFFFFF', borderTop: `1px solid ${COLORS.borderLight}`, padding: '16px 20px', textAlign: 'center', marginTop: 'auto' }}>
+        <button onClick={() => window.open('https://wa.me/254700000000', '_blank')} style={{ backgroundColor: '#198754', color: '#FFFFFF', border: 'none', padding: '12px 20px', borderRadius: '6px', fontSize: '13px', fontWeight: 'bold', width: '100%', maxWidth: '300px', cursor: 'pointer' }}>
           Message Customer Support
         </button>
-        <div style={{ fontSize: '11px', color: COLORS.textMuted, marginTop: '12px' }}>
-          Open Mon-Sat: 9am - 6pm | Closed Sundays
-        </div>
       </footer>
     </div>
   );
