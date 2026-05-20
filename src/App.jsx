@@ -28,6 +28,14 @@ const KENYAN_GOODS = [
     description: 'A space-saving two-seater sofa covered in thick gray fabric upholstery. Includes two large matching rectangular back support pillows and round timber feet.', 
     imageUrl: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=600&q=80' 
   },
+  {
+    id: 'kg2_accent',
+    name: 'Modern Velvet Accent Chair',
+    price: 'Ksh 26,000',
+    dimensions: '75cm W × 75cm D × 85cm H',
+    description: 'A sleek, contemporary single-seater accent chair upholstered in premium forest green velvet fabric with tapered black iron legs.',
+    imageUrl: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80'
+  },
   { 
     id: 'kg3', 
     name: 'Handcrafted Hardwood Coffee Table', 
@@ -69,7 +77,7 @@ const KENYAN_ROOMS = [
     total: 'Ksh 81,500',
     description: 'A space-conscious, budget-friendly setup designed to furnish a single-room layout or studio apartment comfortably without overcrowding.',
     breakdown: '1× Compact 2-Seater Studio Sofa (Ksh 45,000) + 1× Hardwood Coffee Table (Ksh 18,500) + 1× Local Craft Accessories Allowance (Ksh 18,000)',
-    imageUrl: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'kr2',
@@ -77,7 +85,7 @@ const KENYAN_ROOMS = [
     total: 'Ksh 87,500',
     description: 'An intentional, quiet corner arrangement curated for home office spaces, quiet studies, or small master bedroom relaxation zones.',
     breakdown: '1× Cushioned Fabric Armchair (Ksh 24,500) + 1× Premium Modern Minimalist Writing Desk (Ksh 38,000) + 1× High-Stature Framing Accent Fitting (Ksh 25,000)',
-    imageUrl: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=800&q=80' // Fixed: Changed to a real solid wood workspace with matching structural framing layout
   },
   {
     id: 'kr3',
@@ -229,7 +237,7 @@ export default function App() {
                 </div>
 
                 <div onClick={() => navigateTo('rooms')} style={{ cursor: 'pointer', backgroundColor: '#FFFFFF', border: `1px solid ${COLORS.borderLight}`, borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
-                  <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=300&q=80" style={{ width: '80px', height: '80px', objectFit: 'cover' }} alt="Spaces" />
+                  <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=300&q=80" style={{ width: '80px', height: '80px', objectFit: 'cover' }} alt="Spaces" />
                   <div style={{ padding: '16px' }}>
                     <h4 style={{ margin: '0 0 2px 0', fontSize: '14px', fontWeight: 'bold' }}>Curated Space Packages</h4>
                     <p style={{ margin: 0, fontSize: '12px', color: COLORS.textMuted }}>See multi-item room packages optimized between Ksh 80k and 150k.</p>
