@@ -12,7 +12,7 @@ const PALETTE = {
   charcoal: '#2A363B'
 };
 
-// Data Model 1: Exactly 8 Standalone Luxury Furniture Items with Material Options
+// Data Model 1: Exactly 8 Standalone Luxury Furniture Items with Live Image Assets
 const GOODS_DATA = [
   {
     id: 'g1',
@@ -21,6 +21,7 @@ const GOODS_DATA = [
     category: 'Seating',
     dimensions: 'W: 84cm × D: 88cm × H: 76cm',
     description: 'Sculpted low-profile timber frame engineered to command sweeping spatial presence.',
+    imageUrl: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=600&q=80',
     colors: [
       { name: 'Cognac Hide', hex: PALETTE.accentCognac },
       { name: 'Blush Silk', hex: PALETTE.blushSilk },
@@ -34,6 +35,7 @@ const GOODS_DATA = [
     category: 'Surfaces',
     dimensions: 'L: 240cm × W: 100cm × H: 75cm',
     description: 'Solid white oak plank table featuring custom tapered edge profiles and structural legs.',
+    imageUrl: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=600&q=80',
     colors: [
       { name: 'Natural White Oak', hex: '#E6DFD3' },
       { name: 'Smoked Walnut', hex: '#4A3B32' },
@@ -47,6 +49,7 @@ const GOODS_DATA = [
     category: 'Casegoods',
     dimensions: 'W: 180cm × D: 45cm × H: 65cm',
     description: 'Low-slung linear architectural cabinetry featuring seamless compound miter frames.',
+    imageUrl: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=600&q=80',
     colors: [
       { name: 'Muted Walnut', hex: '#5A4D41' },
       { name: 'Bleached Ash', hex: '#DFD9CE' }
@@ -59,6 +62,7 @@ const GOODS_DATA = [
     category: 'Surfaces',
     dimensions: 'Various Diams × H: 32cm / 38cm / 44cm',
     description: 'Nested organic solid wood table layers configured to follow curved layout pathways.',
+    imageUrl: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=600&q=80',
     colors: [
       { name: 'Smoked Oak', hex: '#332C26' },
       { name: 'Natural Ash', hex: '#E3DCD0' }
@@ -71,6 +75,7 @@ const GOODS_DATA = [
     category: 'Seating',
     dimensions: 'W: 340cm × D: 110cm × H: 68cm',
     description: 'A four-piece low horizons modular furniture block built for expansive living rooms.',
+    imageUrl: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80',
     colors: [
       { name: 'Champagne Velvet', hex: '#EFECE6' },
       { name: 'Mocha Bouclé', hex: PALETTE.mochaBoucle },
@@ -84,6 +89,7 @@ const GOODS_DATA = [
     category: 'Seating',
     dimensions: 'W: 92cm × D: 90cm × H: 72cm',
     description: 'Sculptural reading accent chair using organic curves and heavy wool textile weights.',
+    imageUrl: 'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=600&q=80',
     colors: [
       { name: 'Oatmeal Alpaca', hex: '#EAE5DC' },
       { name: 'Blush Silk', hex: PALETTE.blushSilk }
@@ -96,6 +102,7 @@ const GOODS_DATA = [
     category: 'Beds',
     dimensions: 'King Size / W: 220cm × L: 240cm',
     description: 'Bespoke floating bedroom layout integration featuring a seamless extended wall headboard.',
+    imageUrl: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80',
     colors: [
       { name: 'Rift-Cut White Oak', hex: '#DDD6C9' },
       { name: 'Dark Fumed Walnut', hex: '#2D2520' }
@@ -104,10 +111,11 @@ const GOODS_DATA = [
   {
     id: 'g8',
     name: 'The Linear Executive Desk',
-    price: '$5,400',
+    price: '$4,500',
     category: 'Surfaces',
     dimensions: 'W: 200cm × D: 85cm × H: 74cm',
     description: 'Premium home office desk with integrated cord pathways and matte lacquer workspaces.',
+    imageUrl: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80',
     colors: [
       { name: 'Matte Charcoal & Oak', hex: '#262A2B' },
       { name: 'Pure Bone Oak', hex: '#EBE6DD' }
@@ -115,12 +123,13 @@ const GOODS_DATA = [
   }
 ];
 
-// Data Model 2: Exactly 5 Curated Architectural Spaces with Real Pricing Breakdown
+// Data Model 2: Exactly 5 Curated Architectural Spaces with Real Pricing Breakdown & Real Spaces Images
 const CURATED_SPACES = [
   {
     id: 'space1',
     title: 'The Living Room (Curved Layout Suite)',
     description: 'Embracing a low center of gravity to maximize spatial volume along fluid walls.',
+    imageUrl: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80',
     items: [
       { name: '1× Aura Modular Sofa', cost: '$12,500' },
       { name: '1× Orbit Coffee Table Trio', cost: '$3,400' },
@@ -132,6 +141,7 @@ const CURATED_SPACES = [
     id: 'space2',
     title: 'The Reading Nook (Sculptural Corner)',
     description: 'A singular contemplative sanctuary zone tailored for a high-end curved radius nook.',
+    imageUrl: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80',
     items: [
       { name: '1× Monolith Accent Chair', cost: '$3,800' },
       { name: '1× Custom Integrated Side Table', cost: '$1,200' }
@@ -142,6 +152,7 @@ const CURATED_SPACES = [
     id: 'space3',
     title: 'The Dining Environment (Linear Symmetry)',
     description: 'Grounded structural mass anchoring large volume open-concept interior grids.',
+    imageUrl: 'https://images.unsplash.com/photo-1617806118233-18e1db207f62?auto=format&fit=crop&w=800&q=80',
     items: [
       { name: '1× Aileron Dining Table', cost: '$8,500' },
       { name: '6× Aileron Dining Chairs (Suite)', cost: '$7,200' }
@@ -152,6 +163,7 @@ const CURATED_SPACES = [
     id: 'space4',
     title: 'The Master Suite Sanctuary',
     description: 'Low-profile seamless platform bedroom layout mimicking high-end custom hotel architecture.',
+    imageUrl: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80',
     items: [
       { name: '1× Sovereign Platform Bed', cost: '$9,500' },
       { name: '2× Sovereign Nightstands (Pair)', cost: '$3,200' }
@@ -162,16 +174,17 @@ const CURATED_SPACES = [
     id: 'space5',
     title: 'The Home Studio (Bespoke Office)',
     description: 'Functional geometric lines integrated flawlessly into contemporary structural designs.',
+    imageUrl: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80',
     items: [
-      { name: '1× Linear Executive Desk', cost: '$5,400' },
-      { name: '1× Premium Saddle Task Chair', cost: '$2,100' }
+      { name: '1× Linear Executive Desk', cost: '$4,400' },
+      { name: '1× Premium Saddle Task Chair', cost: '$3,100' }
     ],
     total: '$7,500'
   }
 ];
 
 export default function App() {
-  const [activePage, setActivePage] = useState('home'); // home | goods | rooms | about | location
+  const [activePage, setActivePage] = useState('goods'); // Defaulting straight to the catalog
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Advanced Interactive Color States for 8 Individual Goods
@@ -188,8 +201,8 @@ export default function App() {
 
   // Advanced Global Color State for Curated Room Environments
   const [roomGlobalColor, setRoomGlobalColor] = useState({
-    name: 'Champagne Velvet / Light Wood',
-    hex: PALETTE.warmBone
+    name: 'Warm Aniline Leather & Oak',
+    hex: PALETTE.accentCognac
   });
 
   const updateGoodsColor = (itemId, colorObj) => {
@@ -279,11 +292,9 @@ export default function App() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '26px' }}>
           {[
-            { id: 'home', label: 'Main Portal' },
             { id: 'goods', label: 'Our Goods (8 Signature Pieces)' },
             { id: 'rooms', label: '5 Curated Room Layouts' },
-            { id: 'about', label: 'The Atelier Story' },
-            { id: 'location', label: 'Studio Hours & Location' }
+            { id: 'about', label: 'The Atelier Story' }
           ].map((link) => (
             <button
               key={link.id}
@@ -310,7 +321,6 @@ export default function App() {
         </div>
       </div>
 
-      {/* Background Dim Click Mask */}
       {menuOpen && (
         <div onClick={() => setMenuOpen(false)} style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: 'rgba(0,0,0,0.15)', zIndex: 150 }} />
       )}
@@ -318,45 +328,13 @@ export default function App() {
       {/* --- CONTENT CONTROLLER DEPLOYMENT SYSTEM --- */}
       <main style={{ flexGrow: 1, padding: '24px 20px', display: 'flex', flexDirection: 'column' }}>
 
-        {/* DESTINATION 1: LANDING PAGE */}
-        {activePage === 'home' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', margin: 'auto 0', textAlign: 'center', animation: 'slideUp 0.4s ease' }}>
-            <div>
-              <p style={{ textTransform: 'uppercase', fontSize: '10px', letterSpacing: '0.3em', opacity: 0.5, marginBottom: '8px' }}>ARCHITECTURAL COMMISSIONS</p>
-              <h1 style={{ fontSize: '36px', fontWeight: '300', margin: '0 0 16px 0', letterSpacing: '-0.03em', lineHeight: '1.1' }}>
-                Bespoke Geometry.<br/>Bespoke Mass.
-              </h1>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', opacity: 0.7, maxWidth: '340px', margin: '0 auto 24px auto' }}>
-                Explore an immersive tactile ecosystem of masterwood furniture systems designed explicitly for custom room sightlines.
-              </p>
-              <button 
-                onClick={() => setActivePage('goods')}
-                style={{
-                  backgroundColor: PALETTE.textDark,
-                  color: PALETTE.champagne,
-                  border: 'none',
-                  padding: '16px 32px',
-                  borderRadius: '1px',
-                  fontSize: '11px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.2em',
-                  fontWeight: '600',
-                  cursor: 'pointer'
-                }}
-              >
-                Enter Showroom Collection
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* DESTINATION 2: OUR GOODS MATRIX (EXACTLY 8 ITEMS WITH INTERACTIVE SWATCHES) */}
+        {/* DESTINATION 1: OUR GOODS MATRIX (EXACTLY 8 ITEMS WITH LIVE REAL PRODUCTION IMAGES) */}
         {activePage === 'goods' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', animation: 'slideUp 0.4s ease' }}>
             <div>
               <span style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.15em', opacity: 0.5 }}>The Core Catalog</span>
-              <h2 style={{ fontSize: '26px', fontWeight: '300', margin: '4px 0 0 0', letterSpacing: '-0.02em' }}>Standalone Masterpieces</h2>
-              <p style={{ fontSize: '12px', opacity: 0.6, margin: '6px 0 0 0' }}>Displaying our 8 hallmark furniture commissions. Tap swatches to live-alter timber finishes and textile weights.</p>
+              <h2 style={{ fontSize: '26px', fontWeight: '300', margin: '4px 0 0 0', letterSpacing: '-0.02em' }}>Signature Woodwork & Textiles</h2>
+              <p style={{ fontSize: '12px', opacity: 0.6, margin: '6px 0 0 0' }}>Displaying our 8 hallmark standalone furniture pieces. Tap color options to instantly map selected finishes.</p>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
@@ -371,56 +349,60 @@ export default function App() {
                   gap: '12px'
                 }}>
                   
-                  {/* DYNAMIC IMMERSIVE MATERIAL SHAPE DISPLAY BOX */}
+                  {/* LIVE HARDWARE VISUALIZATION CONTAINER */}
                   <div style={{
                     width: '100%',
-                    height: '140px',
-                    backgroundColor: goodsColorState[item.id].hex,
+                    height: '240px',
                     borderRadius: '3px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
-                    boxShadow: 'inset 0 0 40px rgba(0,0,0,0.05)',
-                    position: 'relative'
+                    position: 'relative',
+                    overflow: 'hidden',
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.04)'
                   }}>
-                    <span style={{
-                      fontSize: '11px',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.1em',
-                      color: goodsColorState[item.id].hex === PALETTE.mochaBoucle || goodsColorState[item.id].hex === '#1F1F1F' || goodsColorState[item.id].hex === '#2D2520' || goodsColorState[item.id].hex === '#332C26' || goodsColorState[item.id].hex === '#262A2B' ? PALETTE.champagne : PALETTE.textDark,
-                      fontWeight: '500',
-                      opacity: 0.8
-                    }}>
-                      {item.category} Frame Profile
-                    </span>
-                    <span style={{
+                    <img 
+                      src={item.imageUrl} 
+                      alt={item.name}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                      }}
+                    />
+                    {/* Visual Color Overlay Indicator */}
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '12px',
+                      right: '12px',
+                      backgroundColor: 'rgba(255,255,255,0.9)',
+                      padding: '4px 10px',
+                      borderRadius: '2px',
                       fontSize: '10px',
-                      marginTop: '4px',
-                      opacity: 0.6,
-                      color: goodsColorState[item.id].hex === PALETTE.mochaBoucle || goodsColorState[item.id].hex === '#1F1F1F' || goodsColorState[item.id].hex === '#2D2520' || goodsColorState[item.id].hex === '#332C26' || goodsColorState[item.id].hex === '#262A2B' ? PALETTE.champagne : PALETTE.textDark
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
                     }}>
-                      Active Finish: {goodsColorState[item.id].name}
-                    </span>
+                      <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: goodsColorState[item.id].hex }} />
+                      Finish: {goodsColorState[item.id].name}
+                    </div>
                   </div>
 
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                  <div style={{ display: 'flex', justifycontent: 'space-between', alignItems: 'baseline' }}>
                     <h3 style={{ fontSize: '18px', fontWeight: '400', margin: 0 }}>{item.name}</h3>
-                    <span style={{ fontSize: '16px', fontWeight: '600', color: PALETTE.accentCognac }}>{item.price}</span>
+                    <span style={{ fontSize: '16px', fontWeight: '600', color: PALETTE.accentCognac, marginLeft: 'auto' }}>{item.price}</span>
                   </div>
 
                   <p style={{ fontSize: '13px', lineHeight: '1.5', opacity: 0.7, margin: 0 }}>{item.description}</p>
                   
-                  {/* Technical Metrics Area */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', borderTop: '1px solid rgba(0,0,0,0.04)', paddingTop: '12px', fontSize: '11px', opacity: 0.6 }}>
-                    <div><strong>Scale Metrics:</strong> {item.dimensions}</div>
-                    <div><strong>Composition Track:</strong> {item.materials}</div>
+                    <div><strong>Scale Dimensions:</strong> {item.dimensions}</div>
+                    <div><strong>Classification:</strong> Architectural {item.category}</div>
                   </div>
 
-                  {/* INTERACTIVE COMPONENT COLOR SWATCH PICKERS CONTAINER */}
+                  {/* INTERACTIVE COLOR PICKER OVERLAY */}
                   <div style={{ marginTop: '4px' }}>
-                    <p style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.05em', opacity: 0.4, marginBottom: '8px' }}>Select Individual Finish:</p>
+                    <p style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.05em', opacity: 0.4, marginBottom: '8px' }}>Available Color Customization:</p>
                     <div style={{ display: 'flex', gap: '10px' }}>
                       {item.colors.map((colorOption) => (
                         <button
@@ -449,18 +431,18 @@ export default function App() {
           </div>
         )}
 
-        {/* DESTINATION 3: 5 CURATED SPACES (MAXIMUM 5 ENVIRONMENTAL SYSTEMS WITH FULL BREAKDOWN) */}
+        {/* DESTINATION 2: 5 CURATED SPACES (MAXIMUM 5 ENVIRONMENTAL SYSTEMS WITH PRICING & IMAGE MAPPING) */}
         {activePage === 'rooms' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', animation: 'slideUp 0.4s ease' }}>
             <div>
               <span style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.15em', opacity: 0.5 }}>Architectural Layouts</span>
-              <h2 style={{ fontSize: '26px', fontWeight: '300', margin: '4px 0 0 0', letterSpacing: '-0.02em' }}>5 Curated Spatial Environments</h2>
-              <p style={{ fontSize: '12px', opacity: 0.6, margin: '6px 0 0 0' }}>Complete furniture combinations designed to harmonize together, listed with item-by-item cost auditing numbers.</p>
+              <h2 style={{ fontSize: '26px', fontWeight: '300', margin: '4px 0 0 0', letterSpacing: '-0.02em' }}>5 Curated Architectural Environments</h2>
+              <p style={{ fontSize: '12px', opacity: 0.6, margin: '6px 0 0 0' }}>Complete architectural furniture groups. Alter the global color path to inspect layout adaptability.</p>
             </div>
 
-            {/* HIGH-END INTERACTIVE MASTER ROOM FINISH CONTROLLER */}
+            {/* INTERACTIVE ROOM INTERFACE PICKER */}
             <div style={{ backgroundColor: PALETTE.warmBone, padding: '16px', borderRadius: '4px', border: '1px solid rgba(0,0,0,0.03)' }}>
-              <p style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px 0', fontWeight: '600' }}>Global Studio Spatial Palette Mapper:</p>
+              <p style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px 0', fontWeight: '600' }}>Global Spatial Textile Mapping:</p>
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                 {[
                   { name: 'Warm Aniline Leather & Oak', hex: '#8B4513' },
@@ -485,15 +467,9 @@ export default function App() {
                   </button>
                 ))}
               </div>
-              <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: roomGlobalColor.hex }} />
-                <span style={{ fontSize: '12px', fontStyle: 'italic', opacity: 0.8 }}>
-                  Active Environmental Tone: <strong>{roomGlobalColor.name}</strong> mapped onto all space layouts below.
-                </span>
-              </div>
             </div>
 
-            {/* EXACTLY 5 CURATED ENVIRONMENTAL ROOM BLOCKS */}
+            {/* EXACTLY 5 SPACES DISPLAY LAYOUT */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
               {CURATED_SPACES.map((space, idx) => (
                 <div key={space.id} style={{
@@ -505,33 +481,40 @@ export default function App() {
                   gap: '14px'
                 }}>
                   <div>
-                    <span style={{ fontSize: '11px', fontWeight: '600', color: PALETTE.accentCognac }}>SPACE 0{idx + 1} // COMPOSITION</span>
+                    <span style={{ fontSize: '11px', fontWeight: '600', color: PALETTE.accentCognac }}>SPACE 0{idx + 1} // ARCHITECTURAL COMPOSITION</span>
                     <h3 style={{ fontSize: '20px', fontWeight: '400', margin: '4px 0 0 0' }}>{space.title}</h3>
                     <p style={{ fontSize: '13px', opacity: 0.7, margin: '6px 0 0 0', lineHeight: '1.5' }}>{space.description}</p>
                   </div>
 
-                  {/* IMMERSIVE COMPOSITION FINISH VISUAL BOX */}
+                  {/* REAL HIGH END ROOM ENVIROMENT IMAGE */}
                   <div style={{
                     width: '100%',
-                    height: '100px',
-                    backgroundColor: roomGlobalColor.hex,
-                    opacity: 0.25,
+                    height: '220px',
                     borderRadius: '2px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '11px',
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: PALETTE.textDark,
-                    fontWeight: '500'
+                    overflow: 'hidden',
+                    position: 'relative'
                   }}>
-                    [ Environment Multi-Item Space Preview Layout ]
+                    <img 
+                      src={space.imageUrl} 
+                      alt={space.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      backgroundColor: roomGlobalColor.hex,
+                      mixBlendMode: 'color',
+                      opacity: 0.2,
+                      pointerEvents: 'none'
+                    }} />
                   </div>
 
-                  {/* ITEM AUDIT PRICE MATRIX TABLE */}
+                  {/* ACCOUNTING BREAKDOWN TABLE */}
                   <div style={{ backgroundColor: 'rgba(0,0,0,0.015)', padding: '14px', borderRadius: '4px' }}>
-                    <p style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 10px 0', opacity: 0.5 }}>Bespoke Costing Ledger:</p>
+                    <p style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 10px 0', opacity: 0.5 }}>Individual Furniture Pricing Breakdown:</p>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                       {space.items.map((subItem, sIdx) => (
                         <div key={sIdx} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', borderBottom: '1px dashed rgba(0,0,0,0.05)', paddingBottom: '4px' }}>
@@ -543,7 +526,7 @@ export default function App() {
                     
                     {/* ENVIRONMENTAL INTEGRATED AGGREGATE TOTAL */}
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '14px', paddingTop: '10px', borderTop: `1px solid ${PALETTE.textDark}`, fontWeight: '600', fontSize: '14px' }}>
-                      <span style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>Combined Environment Total Value:</span>
+                      <span style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>Combined Environment Total:</span>
                       <span style={{ color: PALETTE.accentCognac, fontSize: '15px' }}>{space.total}</span>
                     </div>
                   </div>
@@ -554,47 +537,14 @@ export default function App() {
           </div>
         )}
 
-        {/* DESTINATION 4: ABOUT US ATELIER */}
+        {/* DESTINATION 3: ABOUT US ATELIER */}
         {activePage === 'about' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', animation: 'slideUp 0.4s ease', maxWidth: '480px', margin: '12px auto 0 auto' }}>
             <div>
-              <span style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.2em', opacity: 0.5 }}>The Studio DNA</span>
-              <h2 style={{ fontSize: '26px', fontWeight: '300', margin: '4px 0 12px 0', letterSpacing: '-0.02em' }}>Bespoke Architecture, Permanent Materials.</h2>
-              <p style={{ fontSize: '14px', lineHeight: '1.7', opacity: 0.7, margin: '0 0 16px 0' }}>
-                We operate strictly outside the standard patterns of industrial volume commercial manufacturing. Every collection order is treated as a singular private commission, handcrafted by elite woodworkers to guarantee seamless timber lines, grain paths, and raw physical structural integrity.
-              </p>
-              <p style={{ fontSize: '14px', lineHeight: '1.7', opacity: 0.7, margin: 0 }}>
-                Our signature natural textiles and oak variants are harvested transparently from sustainable European reserves and historic Italian mills. We sign, date, and uniquely tag every single production run with stamped metal brass markers to guarantee authentic provenance across generations.
-              </p>
-            </div>
-          </div>
-        )}
-
-        {/* DESTINATION 5: LOCATION AND TIME CONFIGURATIONS */}
-        {activePage === 'location' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', animation: 'slideUp 0.4s ease', maxWidth: '480px', margin: '12px auto 0 auto' }}>
-            <div>
-              <span style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.15em', opacity: 0.5 }}>The Vault Space</span>
-              <h2 style={{ fontSize: '26px', fontWeight: '300', margin: '4px 0 0 0', letterSpacing: '-0.02em' }}>Location & Studio Booking Hours</h2>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', fontSize: '14px', lineHeight: '1.6' }}>
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.015)', padding: '16px', borderRadius: '4px' }}>
-                <h4 style={{ margin: '0 0 6px 0', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Studio Atelier Workshop</h4>
-                <p style={{ margin: 0, opacity: 0.7 }}>Suite A7, Creative Design District<br />Nairobi Workspace Hub / Extension Bounds</p>
-              </div>
-
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.015)', padding: '16px', borderRadius: '4px' }}>
-                <h4 style={{ margin: '0 0 6px 0', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Showroom Access Matrix</h4>
-                <div style={{ opacity: 0.7 }}>
-                  <div>Monday — Friday: 09:00 - 18:00</div>
-                  <div>Saturday Sessions: 10:00 - 15:00</div>
-                  <div style={{ color: PALETTE.accentCognac, marginTop: '4px', fontWeight: '500' }}>Sundays / Public Holidays: Studio Closed</div>
-                </div>
-              </div>
-
-              <p style={{ fontSize: '12px', opacity: 0.5, fontStyle: 'italic', margin: 0 }}>
-                * Note: Deep consultations regarding timber profiling and leather hide inspections require a 24-hour advanced scheduling confirmation notice sent directly to the concierge desk below.
+              <span style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.2em', opacity: 0.5 }}>The Atelier Philosophy</span>
+              <h2 style={{ fontSize: '26px', fontWeight: '300', margin: '4px 0 12px 0', letterSpacing: '-0.02em' }}>Pure Woodwork Architecture. No Stonework.</h2>
+              <p style={{ fontSize: '14px', lineHeight: '1.7', opacity: 0.7 }}>
+                We work strictly in high-end structural timber engineering and ultra-premium tactile textiles. Every item is treated as a private commission, handcrafted by master artisans to align seamlessly with spatial curves and fluid modern sightlines.
               </p>
             </div>
           </div>
@@ -624,7 +574,6 @@ export default function App() {
         </button>
       </footer>
 
-      {/* Embedded High-End Structural CSS Animation Triggers */}
       <style>{`
         @keyframes slideUp { 
           from { opacity: 0; transform: translateY(8px); } 
