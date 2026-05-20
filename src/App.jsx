@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 
+// Plain, clear color variables for local branding
 const COLORS = {
   bgLight: '#F9FAFB',
   cardBg: '#FFFFFF',
   textDark: '#1F2937',
-  textMuted: '#6B7280',
+  textMuted: '#4B5563',
   primaryBlue: '#2563EB',
   borderLight: '#E5E7EB',
   priceTag: '#059669',
   overlay: 'rgba(0, 0, 0, 0.5)'
 };
 
-// Explicitly matching the exact visual details of the chosen images
+// 6 Core Individual Workshop Goods with Exact Visual Descriptions
 const KENYAN_GOODS = [
   { 
     id: 'kg1', 
-    name: 'Modern Cushioned Fabric Armchair', 
+    name: 'Cushioned Fabric Armchair', 
     price: 'Ksh 24,500', 
     dimensions: '85cm W × 80cm D × 85cm H', 
-    description: 'A single-seater accent chair with thick gray fabric cushioning, a tufted button backrest, and light-colored natural wooden legs.', 
+    description: 'A single-seater lounge chair upholstered in dense, woven gray canvas fabric. Features a tufted button backrest and light natural hardwood tapered legs.', 
     imageUrl: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80' 
   },
   { 
@@ -26,7 +27,7 @@ const KENYAN_GOODS = [
     name: 'Compact 2-Seater Studio Sofa', 
     price: 'Ksh 45,000', 
     dimensions: '150cm L × 75cm D × 80cm H', 
-    description: 'A cozy, space-saving two-seater sofa upholstered in dense woven gray fabric, featuring two large matching back support pillows and round tapered wooden legs.', 
+    description: 'A space-saving two-seater sofa covered in thick gray fabric upholstery. Includes two large matching rectangular back support pillows and round timber feet.', 
     imageUrl: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=600&q=80' 
   },
   { 
@@ -34,15 +35,15 @@ const KENYAN_GOODS = [
     name: 'Handcrafted Hardwood Coffee Table', 
     price: 'Ksh 18,500', 
     dimensions: '110cm L × 60cm W × 45cm H', 
-    description: 'A low-profile rectangular living room center table built entirely from rich, dark-grain varnished hardwood panels with solid, thick wooden block legs.', 
+    description: 'A low-profile rectangular living room center table built from deep, dark-grain varnished timber paneling with thick, square solid wood block legs.', 
     imageUrl: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=600&q=80' 
   },
   { 
     id: 'kg4', 
-    name: 'Minimalist Wooden Dining Table Set', 
+    name: 'Minimalist Timber Dining Table', 
     price: 'Ksh 65,000', 
     dimensions: '160cm L × 90cm W × 75cm H', 
-    description: 'A smooth, light-colored natural wood dining table accompanied by two matching long benches that slide neatly underneath to maximize open floor space.', 
+    description: 'A clean, modern dining table surface fashioned from light-varnished natural wood boards, paired with long matching slide-under benches.', 
     imageUrl: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=600&q=80' 
   },
   { 
@@ -50,35 +51,52 @@ const KENYAN_GOODS = [
     name: 'Scandic-Style Light Lounge Chair', 
     price: 'Ksh 28,000', 
     dimensions: '70cm W × 75cm D × 90cm H', 
-    description: 'An open-frame lounge armchair featuring smooth cream-colored fabric cushions set against a minimalist, light ash-wood structural frame.', 
+    description: 'A light-weight comfort chair featuring smooth, cream-colored loose fabric cushions nestled inside an open, exposed light ash wood structural outer frame.', 
     imageUrl: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=600&q=80' 
   },
   { 
     id: 'kg6', 
-    name: 'Contemporary Low-Profile Bed Frame', 
+    name: 'Contemporary Platform Bed Frame', 
     price: 'Ksh 55,000', 
     dimensions: '5ft × 6ft (Standard Queen Size)', 
-    description: 'A sturdy platform wooden bed frame featuring a simple, solid vertical wood-paneled headboard with crisp white linens displayed on top.', 
+    description: 'A sturdy platform base frame constructed out of durable local blockboard wood. Complete with a clean, unadorned, vertical wood-paneled headboard.', 
     imageUrl: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80' 
   }
 ];
 
+// 4 Specific Curated Space Packages matching the requested Ksh 80k - 150k range
 const KENYAN_ROOMS = [
-  { 
-    id: 'kr1', 
-    title: 'Bright & Airy Sitting Room Set', 
-    description: 'A perfectly matched combination for open-plan houses or bright apartments.', 
-    total: 'Ksh 69,500', 
-    breakdown: '1× Fabric Armchair (Ksh 24,500) + 1× Studio Sofa (Ksh 45,000)', 
-    imageUrl: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=800&q=80' 
+  {
+    id: 'kr1',
+    title: 'The Bedsitter Starter Package',
+    total: 'Ksh 81,500',
+    description: 'A space-conscious, budget-friendly setup designed to furnish a single-room layout or studio apartment comfortably without overcrowding.',
+    breakdown: '1× Compact 2-Seater Studio Sofa (Ksh 45,000) + 1× Hardwood Coffee Table (Ksh 18,500) + 1× Local Craft Accessories Allowance (Ksh 18,000)',
+    imageUrl: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=800&q=80'
   },
-  { 
-    id: 'kr2', 
-    title: 'Complete Lounge & Center Table Bundle', 
-    description: 'Get the absolute best value out of our handcrafted solid timber inventory.', 
-    total: 'Ksh 63,500', 
-    breakdown: '1× Hardwood Coffee Table (Ksh 18,500) + 1× 2-Seater Sofa (Ksh 45,000)', 
-    imageUrl: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80' 
+  {
+    id: 'kr2',
+    title: 'The Scholar’s Reading Nook',
+    total: 'Ksh 87,500',
+    description: 'An intentional, quiet corner arrangement curated for home office spaces, quiet studies, or small master bedroom relaxation zones.',
+    breakdown: '1× Cushioned Fabric Armchair (Ksh 24,500) + 1× Premium Modern Minimalist Writing Desk (Ksh 38,000) + 1× High-Stature Framing Accent Fitting (Ksh 25,000)',
+    imageUrl: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'kr3',
+    title: 'The Master Bedroom Suite',
+    total: 'Ksh 115,000',
+    description: 'A uniform, neat setup to elevate a main residential bedroom using strong timber joins and clean coordinating items.',
+    breakdown: '1× Contemporary Platform Bed Frame (Ksh 55,000) + 2× Heavy-Varnished Timber Nightstands (Ksh 30,000) + 1× 3-Drawer Clothing Storage Chest (Ksh 30,000)',
+    imageUrl: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'kr4',
+    title: 'The Estate Living Room Package',
+    total: 'Ksh 141,500',
+    description: 'A comprehensive family gathering layout curated for a standard rental estate home or suburban sitting room.',
+    breakdown: '1× Compact 2-Seater Studio Sofa (Ksh 45,000) + 2× Cushioned Fabric Armchairs (Ksh 49,000) + 1× Hardwood Coffee Table (Ksh 18,500) + 1× Solid Timber Low TV Stand (Ksh 29,000)',
+    imageUrl: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
@@ -86,6 +104,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Clean application routing handler
   const navigateTo = (pageId) => {
     setCurrentPage(pageId);
     setIsMenuOpen(false);
@@ -103,7 +122,7 @@ export default function App() {
       position: 'relative'
     }}>
       
-      {/* --- HEADER --- */}
+      {/* --- SITE HEADER WITH LEFT THREE-LINE HAMBURGER BUTTON --- */}
       <header style={{ 
         backgroundColor: '#FFFFFF', 
         borderBottom: `1px solid ${COLORS.borderLight}`, 
@@ -114,6 +133,7 @@ export default function App() {
         top: 0,
         zIndex: 100
       }}>
+        {/* THE THREE LINES BUTTON (HAMBURGER) */}
         <button 
           onClick={() => setIsMenuOpen(true)}
           style={{
@@ -141,21 +161,31 @@ export default function App() {
         </div>
       </header>
 
-      {/* --- HAMBURGER NAVIGATION DRAWER --- */}
+      {/* --- SLIDE-OUT LEFT NAVIGATION DRAWER --- */}
       {isMenuOpen && (
         <>
+          {/* Tap-to-close dim background overlay */}
           <div 
             onClick={() => setIsMenuOpen(false)}
-            style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: COLORS.overlay, zIndex: 200 }}
+            style={{
+              position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+              backgroundColor: COLORS.overlay, zIndex: 200
+            }}
           />
+          {/* Main Sidebar Drawer content list */}
           <div style={{
             position: 'fixed', top: 0, left: 0, width: '280px', height: '100vh',
             backgroundColor: '#FFFFFF', zIndex: 201, boxShadow: '4px 0 12px rgba(0,0,0,0.15)',
             display: 'flex', flexDirection: 'column', padding: '20px', boxSizing: 'border-box'
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
-              <span style={{ fontWeight: 'bold', fontSize: '14px', color: COLORS.textMuted, letterSpacing: '0.5px' }}>STORE SECTIONS</span>
-              <button onClick={() => setIsMenuOpen(false)} style={{ background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer', color: COLORS.textMuted }}>&times;</button>
+              <span style={{ fontWeight: 'bold', fontSize: '13px', color: COLORS.textMuted, letterSpacing: '0.5px' }}>STORE SECTIONS</span>
+              <button 
+                onClick={() => setIsMenuOpen(false)}
+                style={{ background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer', color: COLORS.textMuted }}
+              >
+                &times;
+              </button>
             </div>
             
             <nav style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -184,13 +214,12 @@ export default function App() {
         </>
       )}
 
-      {/* --- CONTENT AREA --- */}
+      {/* --- WORKSPACE CONTENT VIEWS --- */}
       <main style={{ padding: '20px', flexGrow: 1, maxWidth: '600px', width: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
         
         {/* VIEW 1: HOME PAGE */}
         {currentPage === 'home' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            {/* Direct Local Value Welcome Banner */}
             <div style={{ backgroundColor: '#EFF6FF', border: `1px solid ${COLORS.borderLight}`, padding: '20px', borderRadius: '8px' }}>
               <h2 style={{ margin: '0 0 6px 0', fontSize: '18px', color: COLORS.primaryBlue, fontWeight: 'bold' }}>Locally Crafted, Fairly Priced</h2>
               <p style={{ margin: 0, fontSize: '13px', color: COLORS.textDark, lineHeight: '1.5' }}>
@@ -198,9 +227,8 @@ export default function App() {
               </p>
             </div>
 
-            {/* Visual Quick Navigation Cards */}
             <div>
-              <h3 style={{ margin: '0 0 12px 0', fontSize: '14px', fontWeight: 'bold', textTransform: 'uppercase', color: COLORS.textMuted }}>Explore Our Current Stocks</h3>
+              <h3 style={{ margin: '0 0 12px 0', fontSize: '13px', fontWeight: 'bold', textTransform: 'uppercase', color: COLORS.textMuted }}>Explore Our Collections</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 
                 <div onClick={() => navigateTo('goods')} style={{ cursor: 'pointer', backgroundColor: '#FFFFFF', border: `1px solid ${COLORS.borderLight}`, borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
@@ -215,17 +243,16 @@ export default function App() {
                   <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=300&q=80" style={{ width: '80px', height: '80px', objectFit: 'cover' }} alt="Spaces" />
                   <div style={{ padding: '16px' }}>
                     <h4 style={{ margin: '0 0 2px 0', fontSize: '14px', fontWeight: 'bold' }}>Curated Space Packages</h4>
-                    <p style={{ margin: 0, fontSize: '12px', color: COLORS.textMuted }}>See multi-item furniture bundles arranged for complete rooms.</p>
+                    <p style={{ margin: 0, fontSize: '12px', color: COLORS.textMuted }}>See multi-item room packages optimized between Ksh 80k and 150k.</p>
                   </div>
                 </div>
 
               </div>
             </div>
 
-            {/* Quick Location Alert */}
-            <div style={{ borderLeft: `4px solid ${COLORS.primaryBlue}`, backgroundColor: '#FFFFFF', padding: '12px 16px', borderRadius: '0 8px 8px 0', borderTop: `1px solid ${COLORS.borderLight}`, borderRight: `1px solid ${COLORS.borderLight}`, borderBottom: `1px solid ${COLORS.borderLight}` }}>
-              <span style={{ fontSize: '12px', fontWeight: 'bold', color: COLORS.primaryBlue, display: 'block', marginBottom: '2px' }}>READY FOR PICKUP</span>
-              <p style={{ margin: 0, fontSize: '13px', color: COLORS.textDark }}>Visit our main yard along the Architectural Design Quarter in Nairobi to view these exact physical models today.</p>
+            <div style={{ borderLeft: `4px solid ${COLORS.primaryBlue}`, backgroundColor: '#FFFFFF', padding: '12px 16px', borderRadius: '0 8px 8px 0', border: `1px solid ${COLORS.borderLight}`, borderLeftColor: COLORS.primaryBlue }}>
+              <span style={{ fontSize: '11px', fontWeight: 'bold', color: COLORS.primaryBlue, display: 'block', marginBottom: '2px', letterSpacing: '0.5px' }}>READY FOR WORKSHOP PICKUP</span>
+              <p style={{ margin: 0, fontSize: '13px', color: COLORS.textDark }}>Visit our storage yard layout along the Architectural Design Quarter in Nairobi to see these items in person today.</p>
             </div>
           </div>
         )}
@@ -235,7 +262,7 @@ export default function App() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <div>
               <h2 style={{ margin: '0 0 4px 0', fontSize: '16px', fontWeight: 'bold' }}>Individual Workshop Goods</h2>
-              <p style={{ margin: 0, fontSize: '13px', color: COLORS.textMuted }}>Strictly describing the actual physical items built and on display in our yard.</p>
+              <p style={{ margin: 0, fontSize: '13px', color: COLORS.textMuted }}>Describing only the exact physical items built and displayed across our local showroom inventory.</p>
             </div>
             {KENYAN_GOODS.map((item) => (
               <div key={item.id} style={{ backgroundColor: COLORS.cardBg, border: `1px solid ${COLORS.borderLight}`, borderRadius: '8px', overflow: 'hidden' }}>
@@ -260,20 +287,20 @@ export default function App() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <div>
               <h2 style={{ margin: '0 0 4px 0', fontSize: '16px', fontWeight: 'bold' }}>Curated Space Packages</h2>
-              <p style={{ margin: 0, fontSize: '13px', color: COLORS.textMuted }}>Combined item sets prepared together to help budget for an entire living area at once.</p>
+              <p style={{ margin: 0, fontSize: '13px', color: COLORS.textMuted }}>Four specific, real room combinations engineered for local houses within the Ksh 80,000 to Ksh 150,000 threshold.</p>
             </div>
             {KENYAN_ROOMS.map((room) => (
               <div key={room.id} style={{ backgroundColor: COLORS.cardBg, border: `1px solid ${COLORS.borderLight}`, borderRadius: '8px', overflow: 'hidden' }}>
                 <img src={room.imageUrl} alt={room.title} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                 <div style={{ padding: '16px' }}>
                   <h3 style={{ margin: '0 0 4px 0', fontSize: '15px', fontWeight: 'bold' }}>{room.title}</h3>
-                  <p style={{ margin: '0 0 12px 0', fontSize: '13px', color: COLORS.textMuted }}>{room.description}</p>
+                  <p style={{ margin: '0 0 12px 0', fontSize: '13px', color: COLORS.textMuted, lineHeight: '1.4' }}>{room.description}</p>
                   <div style={{ backgroundColor: '#F9FAFB', padding: '12px', borderRadius: '6px', border: `1px solid ${COLORS.borderLight}` }}>
                     <div style={{ fontSize: '12px', color: COLORS.textDark, marginBottom: '8px', lineHeight: '1.4' }}>
-                      <strong>Package Content:</strong> {room.breakdown}
+                      <strong>Package Elements:</strong> {room.breakdown}
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: `1px solid ${COLORS.borderLight}`, paddingTop: '8px', fontWeight: 'bold', fontSize: '13px' }}>
-                      <span>Combined Price:</span>
+                      <span>Combined Package Price:</span>
                       <span style={{ color: COLORS.priceTag }}>{room.total}</span>
                     </div>
                   </div>
@@ -283,13 +310,13 @@ export default function App() {
           </div>
         )}
 
-        {/* VIEW 4: ABOUT US PAGE */}
+        {/* VIEW 4: ABOUT US, LOCATION & HOURS PAGE */}
         {currentPage === 'about' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <h2 style={{ margin: 0, fontSize: '16px', fontWeight: 'bold' }}>About Our Local Workshop</h2>
+            <h2 style={{ margin: 0, fontSize: '16px', fontWeight: 'bold' }}>Our Local Workshop Story</h2>
             <div style={{ backgroundColor: '#FFFFFF', border: `1px solid ${COLORS.borderLight}`, padding: '16px', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <p style={{ margin: 0, fontSize: '13px', lineHeight: '1.5', color: COLORS.textDark }}>
-                Hometown Furniture Mart is a homegrown retail supplier. We source solid timbers and structured timber blockboards directly from local yards, moving them straight to our joinery and upholstery workspace.
+                Hometown Furniture Mart is a homegrown retail supplier. We source solid timber panels and structural lumber blockboards directly from local yards, moving them straight into our joinery and upholstery workspace.
               </p>
               <p style={{ margin: 0, fontSize: '13px', lineHeight: '1.5', color: COLORS.textDark }}>
                 By removing high-cost high-end showroom rents, intermediate import agents, and lavish marketing campaigns, we offer clean, durable, every-day furniture built for residential houses at baseline local prices.
@@ -297,18 +324,18 @@ export default function App() {
             </div>
             
             <div style={{ backgroundColor: '#FFFFFF', border: `1px solid ${COLORS.borderLight}`, padding: '16px', borderRadius: '8px' }}>
-              <h3 style={{ margin: '0 0 8px 0', fontSize: '13px', fontWeight: 'bold' }}>Showroom Location & Timing</h3>
-              <p style={{ margin: '0 0 4px 0', fontSize: '13px' }}><strong>Yard Location:</strong> Block A7, Architectural Design Quarter, Nairobi</p>
-              <p style={{ margin: '0 0 4px 0', fontSize: '13px' }}><strong>Monday — Friday:</strong> 09:00 AM to 06:00 PM</p>
-              <p style={{ margin: '0 0 4px 0', fontSize: '13px' }}><strong>Saturdays:</strong> 10:00 AM to 03:00 PM</p>
-              <p style={{ margin: 0, fontSize: '13px', color: COLORS.textMuted }}><strong>Sundays & Public Holidays:</strong> Closed for yard maintenance</p>
+              <h3 style={{ margin: '0 0 8px 0', fontSize: '13px', fontWeight: 'bold', color: COLORS.primaryBlue }}>Showroom Location & Timing</h3>
+              <p style={{ margin: '0 0 6px 0', fontSize: '13px' }}>📍 <strong>Yard Location:</strong> Block A7, Architectural Design Quarter, Nairobi</p>
+              <p style={{ margin: '0 0 6px 0', fontSize: '13px' }}>🕒 <strong>Monday — Friday:</strong> 09:00 AM to 06:00 PM</p>
+              <p style={{ margin: '0 0 6px 0', fontSize: '13px' }}>🕒 <strong>Saturdays:</strong> 10:00 AM to 03:00 PM</p>
+              <p style={{ margin: 0, fontSize: '13px', color: COLORS.textMuted }}>🚨 <strong>Sundays & Public Holidays:</strong> Closed for yard maintenance & timber restocking</p>
             </div>
           </div>
         )}
 
       </main>
 
-      {/* --- LOCAL STORE FOOTER --- */}
+      {/* --- FIXED WORKSHOP CONTACT FOOTER --- */}
       <footer style={{ backgroundColor: '#FFFFFF', borderTop: `1px solid ${COLORS.borderLight}`, padding: '20px', textAlign: 'center', marginTop: 'auto' }}>
         <p style={{ margin: '0 0 12px 0', fontSize: '13px', fontWeight: 'bold', color: COLORS.textDark }}>
           Confirm yard availability? Speak directly with our sales team
